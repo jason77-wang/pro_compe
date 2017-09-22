@@ -1,0 +1,681 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="background-color: transparent;"><head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+html{-webkit-text-size-adjust: none;}
+body,html{margin:0;padding:0;font-size:12px;font-family:microsoft yahei,simsun;background:#fff;}
+*{position:absolute;left:0;top:0;width: 100%;height: 100%;overflow:hidden;border:0}
+img{width:auto;height:auto;}
+ul{list-style: none;padding:0;margin:0;}
+a{text-decoration:none;}
+.macro-text-union .macro-text,.macro-text *{display:inline;width:auto;height:auto;position:static;}
+.no-decoration,.no-decoration *{text-decoration:none !important;}
+.opening{z-index:1000;background:#fff;left:-999999px;}
+.intercut{z-index:1000;background:#fff;left:-999999px;}
+.container{border:0px #050a28 solid;background:#fff;}
+.item,.border1{border:0px #fff solid;}
+.info1{color:#31629d;text-align:center}
+.info3{color:#fff;text-align:center}
+.info4{color:#979d9d;text-align:center}
+.info2{color:#a00011;text-align:center}
+.logo1{z-index:50;}
+.pagec{cursor:pointer;z-index:40;}
+.pagec:hover{opacity:0.6;filter:alpha(opacity=60);}
+/*以下是交互位置关系设置*/
+.desc{margin-left:-9999999px}
+.background1{margin-left:-9999999px}
+.showbox-current .desc{margin-left:0}
+.showbox-current .background1{margin-left:0}
+.showbox-current .border1{margin-left:-9999999px}
+</style></head>
+
+<body style="background-color: transparent;">
+<script type="text/javascript" src="h_35_3_data/tpi3_12.js"></script>
+<script type="text/javascript">
+//映射广告容器方法集
+var _m = __tpf.methods
+    ,_attachDOMEvent = _m.attachDOMEvent
+    ,_detachDOMEvent = _m.detachDOMEvent
+    ,_createSimplePart = _m.createSimplePart
+    ,_getElementsByClassName = _m.getElementsByClassName
+    ,_getClass = _m.getClass
+    ,_removeClass = _m.removeClass
+    ,_setClass = _m.setClass
+    ,_styleChanging=_m.styleChanging
+    ,_unRegListener=_m.unRegListener
+    ,_detachCustomEventAll=_m.detachCustomEventAll
+    ,_rotateBox=_m.rotateBox
+    ,_getTrueSize=_m.getTrueSize
+    ,_relationModel=_m.relationModel;
+</script>
+<script type="text/javascript">
+//3.0投放模板的初始化
+var __keyMap=parent.__keyMapInit({
+    "containerBorderLeftWidth": 1//必填
+    ,"containerBorderRightWidth": 1//必填
+    ,"containerBorderTopWidth": 1//必填
+    ,"containerBorderBottomWidth": 1//必填
+	,"logo1MinHeight": 20
+	,logo1Image:'gap_images/h_33_logo.png'
+	,logo1Margin:2
+	,logo1BackgroundColor:'#b0d4e4'
+	,background1BackgroundColor:'#fff'
+	//,pagec1Image:'gap_images/f_87_pagec1.png'
+	//,pagec2Image:'gap_images/f_87_pagec2.png'
+	,itemBorderColor:'#dcdcdc'
+	,'showbox-current .itemBorderColor':'#326897'
+	,border1BackgroundColor:'#ff6501'
+	,info1MaxFontSize:14
+	,info1MaxLineCount:2
+	,openingImage:''
+	,openingDuration:3000
+	,intercutImage:''
+	,intercutInter:5000
+	,intercutDuration:3000
+});
+
+//单个设置初始化样式，并且返回样式值
+function __keyMapInit(_k,_v){
+	var _obj={};
+	_obj[_k]=_v;
+	return parent.__keyMapInit(_obj)[_k];
+}
+
+//带有当前触发的边框宽度处理对象
+function __getBorderWidth(_w1,_w2){
+	return {
+		initBorderWidth:Math.max(_w1,_w2)
+		,borderGap:Math.max(_w2-_w1,0)
+		,currentBorderGap:Math.max(_w1-_w2,0)
+	}
+}
+</script>
+<script type="text/javascript">
+<!--
+
+//自适应
+!function(){
+	var _container=_getElementsByClassName('container')[0]
+		,_bodyWidth=parseInt(document.body.offsetWidth)||parseInt(document.documentElement.clientWidth)
+		,_bodyHeight=parseInt(document.body.offsetHeight)||parseInt(document.documentElement.clientHeight)
+		,_containerWidth=_bodyWidth-__keyMap.containerBorderLeftWidth-__keyMap.containerBorderRightWidth
+		,_containerHeight=_bodyHeight-__keyMap.containerBorderTopWidth-__keyMap.containerBorderBottomWidth;
+	var _style='';
+	//边框与容器
+	window.__containerWdith=_containerWidth;
+	window.__containerHeight=_containerHeight;
+	_style+='.container{width:'+_containerWidth+'px;height:'+_containerHeight+'px;}';
+
+	//创建自适应关联模型(构造函数 _relationModel)
+
+	//保存所有关联模型里的标签对象
+	var _labelMap=window.__labelMap={};
+
+	var _logoW1=Math.round([_containerHeight*__keyMapInit('logo1WHRatio',1.2),_containerWidth*__keyMapInit('logo1WHRatio',1.2)*90/728].sort(function(a,b){return a-b})[0])
+		,_logoW2=Math.round([_containerHeight*__keyMapInit('logo2WHRatio',0),_containerWidth*__keyMapInit('logo1WHRatio',0)*90/728].sort(function(a,b){return a-b})[0])
+	if(_logoW1<__keyMapInit('logo1MinWidth',50))_logoW1=__keyMapInit('logo1MinWidth',50);
+	if(_logoW2<__keyMapInit('logo2MinWidth',0))_logoW2=__keyMapInit('logo2MinWidth',0);
+	//横向布局
+	_style+=new _relationModel({
+		gMap:_labelMap
+		,limit:_containerWidth
+		,memberList:[{
+			linked:1
+			,min:__keyMap.logo1MinWidth
+			,hidden:1
+			,memberList:[{
+				css:'.logo1'
+				,label:'logoW'
+				,min:__keyMap.logo1MinWidth
+				,hidden:1
+				,length:_logoW1
+				,pr:3
+				,pos:1
+				,lr:1
+			},{
+				css:'.logo2'
+				,label:'logo2W'
+				,length:_logoW2
+				,min:__keyMap.logo2MinWidth
+				,hidden:1
+				,pr:1
+				,linkPos:1
+				,pos:4
+			}]
+		},{
+			length:_containerWidth-_logoW1-_logoW2
+			,pr:3
+			,linked:1
+			,min:__keyMapInit('mainMinWidth',160)
+			,lr:2
+			,pos:2
+			,memberList:[{
+				min:__keyMapInit('pagecMinWidth',15)*2
+				,hidden:1
+				,linked:1
+				,memberList:[{
+					css:'.pagec1'
+					,pos:1
+				},{
+					css:'.pagec2'
+					,pos:3
+				}]
+			},{
+				css:'.sc'
+				,label:'scW'
+				,lr:1
+				,pos:2
+				,ratio:__keyMapInit('scWidthRatio',1)
+			}]
+		}]
+	}).renderCss();
+
+	//获取showboxCount和showboxWidth
+	var _tempMemberList=[];
+	for(var i=1;i<=parent.__init.mLists.length;i++){
+		_tempMemberList.push({
+			label:'showboxCount'+i
+			,min:Math.max(__keyMapInit('showboxMinWidth',40),parseInt(_containerHeight/__keyMapInit('showboxHWRatio',0.9)))
+			,hidden:(i>1?1:0)
+		});
+	}
+	new _relationModel({
+		limit:_labelMap.scW.info.width	
+		,gMap:_labelMap
+		,memberList:_tempMemberList
+	}).getComputedValue();
+
+	var _showBoxCount=0,_showBoxWidth,_tempWidthList=[];
+	for(var i=1;i<=parent.__init.mLists.length;i++){
+		if(_labelMap['showboxCount'+i].info.width>0){
+			_tempWidthList.push(_labelMap['showboxCount'+i].info.width);
+			_showBoxCount=i
+		}
+	}
+
+	_showBoxWidth=_tempWidthList.sort(function(a,b){return a-b})[0]||0;
+	_style+='.showbox{width:'+_showBoxWidth+'px}.sc{width:'+_showBoxWidth*_showBoxCount+'px}';
+
+	//item1边框处理
+	var _item1BorderWidth=__getBorderWidth(__keyMapInit('itemBorderWidth',1),__keyMapInit('showbox-current .itemBorderWidth',2));
+
+	//item1横向
+	_style+=new _relationModel({
+		gMap:_labelMap
+		,limit:_showBoxWidth
+		,memberList:[{},{
+			ratio:__keyMapInit('itemWidthRatio',0.98)
+			,linkPos:1
+			,memberList:[{
+				css:'.item'
+				,label:'itemW'
+				,memberList:[{},{
+					ratio:__keyMapInit('dispcWidthRatio',0.98)
+					,min:__keyMapInit('dispcMinWidth',40)
+					,css:'.dispc'
+					,label:'dispcW'
+				},{}]
+			},{
+				length:_item1BorderWidth.initBorderWidth*2
+			}]
+		},{}]
+	}).renderCss();
+
+	//desc横向
+	_style+=new _relationModel({
+		gMap:_labelMap
+		,limit:_labelMap.itemW.info.width
+		,memberList:[{},{
+			ratio:__keyMapInit('descWidthRatio',0.98)
+			,min:__keyMapInit('dispcMinWidth',50)
+			,css:'.desc'
+			,label:'descW'
+		},{}]
+	}).renderCss();
+
+	//item纵向
+	_style+=new _relationModel({
+		gMap:_labelMap
+		,type:'top'
+		,limit:_containerHeight
+		,memberList:[{},{
+			ratio:__keyMapInit('itemHeightRatio',0.98)
+			,linkPos:1
+			,memberList:[{
+				css:'.item'
+				,label:'itemH'
+			},{
+				length:_item1BorderWidth.initBorderWidth*2
+			}]
+		},{}]
+	}).renderCss();
+
+	//item1 当前触发边框的样式
+	_style+='.item{margin-left:'+_item1BorderWidth.borderGap+'px}';
+	_style+='.showbox-current .item{margin-left:'+_item1BorderWidth.currentBorderGap+'px}';
+	_style+='.item{margin-top:'+_item1BorderWidth.borderGap+'px}';
+	_style+='.showbox-current .item{margin-top:'+_item1BorderWidth.currentBorderGap+'px}';
+
+	//dispc纵向
+	_style+=new _relationModel({
+		gMap:_labelMap
+		,type:'top'
+		,limit:_labelMap.itemH.info.height
+		,memberList:[{},{
+			css:'.dispc'
+			,label:'dispcH'
+			,ratio:__keyMapInit('dispcHeightRatio',0.98)
+			,lr:1
+		},{}]
+	}).renderCss();
+
+	//desc纵向
+	_style+=new _relationModel({
+		gMap:_labelMap
+		,type:'top'
+		,limit:_labelMap.itemH.info.height
+		,memberList:[{},{
+			css:'.desc'
+			,label:'descH'
+			,ratio:__keyMapInit('descHeightRatio',0.88)
+			,lr:1
+			,memberList:[{
+				css:'.info1'
+				,ratio:__keyMapInit('info1HeightRatio',0.47)
+				,min:__keyMapInit('info1MinHeight',20)
+				,lr:1
+			},{
+				css:'.info4'
+				,min:__keyMapInit('info4MinHeight',16)
+				,hidden:1
+			},{
+				css:'.info2'
+				,ratio:__keyMapInit('infoHeightRatio',0.25)
+				,min:__keyMapInit('info2MinHeight',16)
+				,hidden:1
+			}]
+		},{}]
+	}).renderCss();
+
+	//border1横向
+	_style+=new _relationModel({
+		gMap:_labelMap
+		,limit:_labelMap.itemW.info.width
+		,memberList:[{
+			ratio:__keyMapInit('border1WidthRatio',0.14)
+			,min:__keyMapInit('border1MinWidth',44)
+			,linkPos:1
+			,memberList:[{
+				css:'.border1'
+			},{
+				length:__keyMapInit('border1BorderWidth',0)*2
+			}]
+		},{}]
+	}).renderCss();
+
+	//border1纵向
+	_style+=new _relationModel({
+		gMap:_labelMap
+		,type:'top'
+		,limit:_containerHeight
+		,memberList:[{
+			ratio:__keyMapInit('border1HeightRatio',0.23)
+			,min:__keyMapInit('border1MinHeight',18)
+			,linkPos:1
+			,memberList:[{
+				css:'.border1'
+			},{
+				length:__keyMap.border1BorderWidth*2
+			}]
+		},{}]
+	}).renderCss();
+
+
+	//单品图内部样式
+	var _discTW=_getTrueSize(_labelMap.dispcW.info.width,_labelMap.dispcH.info.height,parent.__init.resizeInfo.w,parent.__init.resizeInfo.h);//获取单品图渲染后的大小
+	_style+='.disp{width:'+(_discTW[0])+'px;height:'+(_discTW[1])+'px;left:'+Math.round((_labelMap.dispcW.info.width-_discTW[0])/2)+'px;top:'+Math.round((_labelMap.dispcH.info.height-_discTW[1])/2)+'px}'
+
+
+	window.__showBoxWidth = _showBoxWidth;
+	window.__showBoxCount=_showBoxCount;
+
+
+	if(document.createStyleSheet){
+		document.createStyleSheet().cssText=_style;
+	}else{
+		document.write('<style>'+_style+'</style>');
+	}
+}();
+//-->
+</script><style>.container{width:578px;height:88px;}.logo1{width:86px;left:0px;}.pagec1{width:0px;left:86px;display:none;}.sc{width:492px;left:86px;}.pagec2{width:0px;left:578px;display:none;}.logo2{width:0px;left:578px;display:none;}.showbox{width:98px}.sc{width:490px}.item{width:92px;left:1px;}.dispc{width:90px;left:1px;}.desc{width:90px;left:1px;}.item{height:82px;top:1px;}.item{margin-left:1px}.showbox-current .item{margin-left:0px}.item{margin-top:1px}.showbox-current .item{margin-top:0px}.dispc{height:80px;top:1px;}.desc{height:72px;top:5px;}.info1{height:34px;top:0px;}.info4{height:20px;top:34px;}.info2{height:18px;top:54px;}.border1{width:44px;left:0px;}.border1{height:20px;top:0px;}.disp{width:90px;height:60px;left:0px;top:10px}</style>
+<a class="opening macro macro-link link-title macro-single otherurl_opening" target="_blank" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694898242&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4873%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103"></a>
+<a class="intercut macro macro-link link-title macro-single otherurl_intercut" target="_blank" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694898242&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4873%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103"></a>
+<div class="container macro macro-block block-all1 no-block-opacity">
+	<a class="logo1 macro macro-image-union" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694898242&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4873%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank">
+		<div class="logo1-bg"></div>
+		<div class="logo1-img" style="font-size: 0px; line-height: 0; width: 86px; height: 88px;"><img style="display: block; margin: 0px; padding: 0px; border: 0px none; background: transparent none repeat scroll 0% 0%; position: absolute; width: 82px; height: 50px; left: 2px; top: 19px;" class="__staticImg" src="h_35_3_data/147694802058087034e080a9183330.png"><div style="position:absolute;opacity:0;filter:alpha(opacity=0);width:100%;height:100%;background:#fff;-moz-user-select:none;"></div></div>
+	</a>
+	<a class="logo2 macro macro-image-union" style="visibility: hidden;" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694898242&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4873%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank">
+		<div class="logo2-bg"></div>
+		<div class="logo2-img"></div>
+	</a>
+	<div class="sc">
+		<script type="text/javascript">
+		<!--
+			//滚动体元素结合（单品集合）
+			!function(){
+
+				var _str='';
+				for(var i=1;i<=parent.__init.mLists.length;i++){
+					var _m=parent.__init.mLists[i-1];
+
+					_str+='<div class="showbox macro macro-title"><div class="item macro macro-block block-all no-block-opacity" current="showbox"><div class="dispc"><zpshow class="disp macro macro-block block-border block-border-width macro-link" titlemark="'+i+'" macro_link="disp"></zpshow></div><div class="border1 macro macro-block block-all no-block-opacity"><a class="info3 macro macro-text-union" hideKey="border1"><span class="info3-content1 macro macro-text" pr=1></span><span class="info3-content2 macro macro-text" pr=3></span><span class="info3-content3 macro macro-text" pr=2></span></a></div><a class="background1 macro macro-block block-background macro-link link-title"></a><div class="desc"><a class="info1 macro macro-text"></a><a class="info2 macro macro-text-union"><span class="info2-content1 macro macro-text" pr=1></span><span class="info2-content2 macro macro-text" pr=3></span><span class="info2-content3 macro macro-text" pr=2></span></a><a class="info4 macro macro-text-union"><span class="info4-content1 macro macro-text" pr=1></span><span class="info4-content2 macro macro-text" pr=3></span><span class="info4-content3 macro macro-text" pr=2></span></a></div></div></div>';
+
+				}
+				document.write(_str);
+			}();
+		//-->
+		</script><div class="showbox macro macro-title" title="途昂" style="left: 0px; animation: 800ms ease 0s normal none 1 running setpage0;"><div class="item macro macro-block block-all no-block-opacity" current="showbox"><div class="dispc"><a href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694898242&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4873%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"><img src="h_35_3_data/1303510668694898242_l_300_200_503806012.jpg" class="disp macro macro-block block-border block-border-width macro-link" titlemark="1" macro_link="disp"></a></div><div class="border1 macro macro-block block-all no-block-opacity"><a class="info3 macro macro-text-union" hidekey="border1" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 20px; line-height: 20px;" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694898242&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4873%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"><span class="info3-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info3-content2 macro macro-text" pr="3">直降</span><span class="info3-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a></div><a class="background1 macro macro-block block-background macro-link link-title" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694898242&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4873%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"></a><div class="desc"><a class="info1 macro macro-text" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; height: 34px;" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694898242&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4873%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"><span style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; height: auto; font-size: 12px; line-height: 17px; display: inline-block; margin-top: 0px;">北京&nbsp;最高优惠1.20万</span></a><a class="info2 macro macro-text-union" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 18px; line-height: 18px;" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694898242&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4873%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"><span class="info2-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info2-content2 macro macro-text" pr="3">途昂</span><span class="info2-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a><a class="info4 macro macro-text-union" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 20px; line-height: 20px;" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694898242&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4873%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"><span class="info4-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info4-content2 macro macro-text" pr="3"></span><span class="info4-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a></div></div></div><div class="showbox macro macro-title" style="left: 98px; animation: 800ms ease 0s normal none 1 running setpage0;" title="途观L"><div class="item macro macro-block block-all no-block-opacity" current="showbox"><div class="dispc"><a href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668696242527&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4936%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"><img src="h_35_3_data/1303510668696242527_l_300_200_497404325.jpg" class="disp macro macro-block block-border block-border-width macro-link" titlemark="2" macro_link="disp"></a></div><div class="border1 macro macro-block block-all no-block-opacity"><a class="info3 macro macro-text-union" hidekey="border1" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668696242527&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4936%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 20px; line-height: 20px;"><span class="info3-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info3-content2 macro macro-text" pr="3">直降</span><span class="info3-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a></div><a class="background1 macro macro-block block-background macro-link link-title" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668696242527&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4936%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"></a><div class="desc"><a class="info1 macro macro-text" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668696242527&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4936%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; height: 34px;"><span style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; height: auto; font-size: 12px; line-height: 17px; display: inline-block; margin-top: 0px;">北京&nbsp;最高优惠2.30万</span></a><a class="info2 macro macro-text-union" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668696242527&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4936%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 18px; line-height: 18px;"><span class="info2-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info2-content2 macro macro-text" pr="3">途观L</span><span class="info2-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a><a class="info4 macro macro-text-union" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668696242527&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb4936%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 20px; line-height: 20px;"><span class="info4-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info4-content2 macro macro-text" pr="3"></span><span class="info4-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a></div></div></div><div class="showbox macro macro-title showbox-current" style="left: 196px; animation: 800ms ease 0s normal none 1 running setpage0;" title="汉兰达"><div class="item macro macro-block block-all no-block-opacity" current="showbox"><div class="dispc"><a href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694791898&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2694%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"><img src="h_35_3_data/1303510668694791898_l_300_200_751942554.jpg" class="disp macro macro-block block-border block-border-width macro-link" titlemark="3" macro_link="disp"></a></div><div class="border1 macro macro-block block-all no-block-opacity"><a class="info3 macro macro-text-union" hidekey="border1" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694791898&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2694%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 20px; line-height: 20px;"><span class="info3-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info3-content2 macro macro-text" pr="3">直降</span><span class="info3-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a></div><a class="background1 macro macro-block block-background macro-link link-title" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694791898&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2694%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"></a><div class="desc"><a class="info1 macro macro-text" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694791898&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2694%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; height: 34px;"><span style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; height: auto; line-height: 19px; font-size: 12px; display: inline-block; margin-top: 8px;">23.98万-42.24万</span></a><a class="info2 macro macro-text-union" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694791898&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2694%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 18px; line-height: 18px;"><span class="info2-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info2-content2 macro macro-text" pr="3">汉兰达</span><span class="info2-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a><a class="info4 macro macro-text-union" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694791898&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2694%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 20px; line-height: 20px;"><span class="info4-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info4-content2 macro macro-text" pr="3"></span><span class="info4-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a></div></div></div><div class="showbox macro macro-title" style="left: 294px; animation: 800ms ease 0s normal none 1 running setpage0;" title="途观"><div class="item macro macro-block block-all no-block-opacity" current="showbox"><div class="dispc"><a href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694893014&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2871%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"><img src="h_35_3_data/1303510668694893014_l_300_200_752984899.jpg" class="disp macro macro-block block-border block-border-width macro-link" titlemark="4" macro_link="disp"></a></div><div class="border1 macro macro-block block-all no-block-opacity"><a class="info3 macro macro-text-union" hidekey="border1" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694893014&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2871%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 20px; line-height: 20px;"><span class="info3-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info3-content2 macro macro-text" pr="3">直降</span><span class="info3-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a></div><a class="background1 macro macro-block block-background macro-link link-title" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694893014&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2871%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"></a><div class="desc"><a class="info1 macro macro-text" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694893014&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2871%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; height: 34px;"><span style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; height: auto; font-size: 12px; line-height: 17px; display: inline-block; margin-top: 0px;">北京&nbsp;最高优惠8.30万</span></a><a class="info2 macro macro-text-union" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694893014&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2871%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 18px; line-height: 18px;"><span class="info2-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info2-content2 macro macro-text" pr="3">途观</span><span class="info2-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a><a class="info4 macro macro-text-union" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694893014&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2871%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 20px; line-height: 20px;"><span class="info4-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info4-content2 macro macro-text" pr="3"></span><span class="info4-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a></div></div></div><div class="showbox macro macro-title" style="left: 392px; animation: 800ms ease 0s normal none 1 running setpage0;" title="普拉多"><div class="item macro macro-block block-all no-block-opacity" current="showbox"><div class="dispc"><a href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694799787&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb1868%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"><img src="h_35_3_data/1303510668694799787_l_300_200_747016650.jpg" class="disp macro macro-block block-border block-border-width macro-link" titlemark="5" macro_link="disp"></a></div><div class="border1 macro macro-block block-all no-block-opacity"><a class="info3 macro macro-text-union" hidekey="border1" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694799787&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb1868%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 20px; line-height: 20px;"><span class="info3-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info3-content2 macro macro-text" pr="3">直降</span><span class="info3-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a></div><a class="background1 macro macro-block block-background macro-link link-title" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694799787&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb1868%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"></a><div class="desc"><a class="info1 macro macro-text" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694799787&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb1868%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; height: 34px;"><span style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; height: auto; font-size: 12px; line-height: 17px; display: inline-block; margin-top: 0px;">北京&nbsp;最高优惠1.50万</span></a><a class="info2 macro macro-text-union" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694799787&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb1868%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 18px; line-height: 18px;"><span class="info2-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info2-content2 macro macro-text" pr="3">普拉多</span><span class="info2-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a><a class="info4 macro macro-text-union" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668694799787&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb1868%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 20px; line-height: 20px;"><span class="info4-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info4-content2 macro macro-text" pr="3"></span><span class="info4-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a></div></div></div><div class="showbox macro macro-title" style="left: -1000px; animation: 800ms ease 0s normal none 1 running setpage0;" title="朗逸2015款1.6L"><div class="item macro macro-block block-all no-block-opacity" current="showbox"><div class="dispc"><a href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668698321241&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2370%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"><img src="h_35_3_data/1303510668698321241_l_300_200_665779958.jpg" class="disp macro macro-block block-border block-border-width macro-link" titlemark="6" macro_link="disp"></a></div><div class="border1 macro macro-block block-all no-block-opacity"><a class="info3 macro macro-text-union" hidekey="border1" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668698321241&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2370%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 20px; line-height: 20px;"><span class="info3-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info3-content2 macro macro-text" pr="3">直降</span><span class="info3-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a></div><a class="background1 macro macro-block block-background macro-link link-title" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668698321241&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2370%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank"></a><div class="desc"><a class="info1 macro macro-text" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668698321241&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2370%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; height: 34px;"><span style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; height: auto; line-height: 19px; font-size: 12px; display: inline-block; margin-top: 8px;">最高降幅5.50万</span></a><a class="info2 macro macro-text-union" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668698321241&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2370%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 18px; line-height: 18px;"><span class="info2-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info2-content2 macro macro-text" pr="3">朗逸2015款1.6L</span><span class="info2-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a><a class="info4 macro macro-text-union" href="https://ut.gtags.net/tms/c3?p=23&amp;mk=46VPqo4vELDWM6QO3tLCeEbAp0iHEGMXBOai7Mf02Fn8tUBXG4FQlmddP52aaOefr4FbMMtFnRKGmTstF8bhuHIWVFmi85FOMqcNpq3RPJ8lxXESFc5aRF6QpRxsxPFa3Pu62Zo5rldWRpjfbFI4RwgT2FtgRuh4qK-3BnbE3HxsBePV9RL91DPbQZMraLBQ4R8h9yYjAqRR_M7M1zAi432Bhp7zsTdJ-g7Fjt2XB1lZcQpBAYmPPZW7Sj60wR_ZaM-cC2rzR1oObribd7ypfCS6um5mMbdkhJCg9pJmevVR8-yCTHf5KJqRYVQqlbgPAX4JdwCRpBFTOMKXySzQtWC5jcP3MZLFf8aIaIaMgEH85x391E1NxZd12HoK9rnoqkyvDbkFzwcjCecNSS8AaSibRNcfzio2W5txaByTEN1Oy6bpJVS0t_FZ05buxPj_uGHdAQZ0P6hUifZ7BiZrhykX5jClpIYHWxiXNcDXaI12PHAmOVO2u9hGK6IXgh0iv00LfKdLrcRIt_-TrIbF5vSeP02h9FOwtYmiqmJHPILgYp_E6z_v_G2lpqZa4DmmPWxArBaAlKslWvSn5nBNZg&amp;t=9&amp;mat=1303510668698321241&amp;url=http%3A%2F%2Fdealer.bitauto.com%2Fzuidijia%2Fnb2370%2F%3FWT.mc_jz%3Dxunjia%26sourceid%3D103" target="_blank" style="overflow: hidden; text-overflow: ellipsis; overflow-wrap: break-word; word-break: break-all; font-size: 12px; height: 20px; line-height: 20px;"><span class="info4-content1 macro macro-text" pr="1" style="font-size: 12px;"></span><span class="info4-content2 macro macro-text" pr="3"></span><span class="info4-content3 macro macro-text" pr="2" style="font-size: 12px;"></span></a></div></div></div>
+	</div>
+	
+	<a class="pagec1 pagec prev macro macro-image-single macro-nolink" hidefocus="true" style="visibility: hidden;"></a>
+	<a class="pagec2 pagec next macro macro-image-single macro-nolink" hidefocus="true" style="visibility: hidden;"></a>
+
+</div>
+<script type="text/javascript">
+<!--
+__fillMacro();
+//配置----------------------------开始
+var _showDis=__showBoxWidth//滚动的每次距离
+	,_container=_getElementsByClassName('container')[0]//轮播体整体对象,整个广告区域
+	,_pageSons=_getElementsByClassName('showbox')//旋转体dom元素集合
+	,_prevButton=_getElementsByClassName('prev')//向前翻页按钮集合
+	,_nextButton=_getElementsByClassName('next')//向后翻页按钮集合
+	,_triggers=_getElementsByClassName('showbox')//旋转体导航按钮元素集合
+	,_triggerCall=function(i){//轮播触发函数，返回当前触发的index值
+
+		if(!_loadMap[i]){
+			_loadMap[i]=1;
+			parent.__start(i+1);
+			_otherProcess(i);
+		}
+
+		__setSingleLink(parent.__init.mLists[i])
+
+	}
+	,_noTriggerCall=function(i){	//轮播脱离触发函数，返回脱离时的index值
+
+	}
+	,_otherProcess=function(i){//展示时一些处理，只会调用一次，返回轮播体的index值
+		//textClip 切割文本 d文本对象(对象中直接包含要切割的文字) d1参考对象(高度以此对象为准) h参考高度 rp{w最后行的参考宽度 h启动条件(大于多少高度为最后一行)} ec回调函数，返回d，d1
+		//textNarrow只适用单行，无限缩小字体，控制在单行中 d文本对象 d1参考对象 h参考行高 f初始字体大小 a递减大小(默认2)
+
+
+	};
+//配置----------------------------结束
+
+
+var _focusTime	 //受关注的timer
+	,_mouseoutTime	//鼠标离开的timer
+	,_mouseover=0	//鼠标是否在广告中的标志
+	,_focusMap={}	//已受关注的map
+	,_actionMap={}	//已互动的map
+	,_currrentFocus=-1;
+//受关注统计发送
+function _focusToTrack(i){
+	clearTimeout(_focusTime);
+	_focusTime=setTimeout(function(){
+		!_focusMap[i]&&parent.__init.mLists[i]&&parent.__zp_send_track(parent.__init.mLists[i].focusTrack)
+		_focusMap[i]=1;
+	},1000);
+}
+
+
+
+
+
+
+//绑定受关注统计发送逻辑,不同模板逻辑内容自行修改
+_attachDOMEvent(_container,'onmouseover',function(){
+	clearTimeout(_mouseoutTime);
+	_mouseover=1;
+	try{_focusToTrack(_bindedRotate.getIndex());}catch(e){};
+});
+_attachDOMEvent(_container,'onmouseout',function(){
+	clearTimeout(_mouseoutTime);
+	clearTimeout(_focusTime);
+	_mouseoutTime=setTimeout(function(){
+		_mouseover=0;
+	},200);
+});
+
+//item鼠标事件绑定
+_attachDOMEvent(_getElementsByClassName('item'),'onmouseenter',function(){
+	_setClass(this,'item-current');
+});
+_attachDOMEvent(_getElementsByClassName('item'),'onmouseleave',function(){
+	_removeClass(this,'item-current');
+});
+
+var _random1;
+var _loadMap={};
+var _simplePart=_createSimplePart('s1');
+var _rotateBoxObj=new _rotateBox({
+	box:_container	//轮播体整体对象
+	,triggers:_triggers	//导航按钮组
+	,items:_pageSons	//轮播体单元组
+	,triggerCall:_triggerCall	//轮播触发函数，返回当前index值
+	,noTriggerCall:_noTriggerCall	//轮播脱离触发函数，返回脱离时的index值
+	,next:_nextButton	//下一页的按钮，可以是数组
+	,prev:_prevButton	//上一页的按钮，可以是数组
+	,inter:parent.__init.inter
+	,touchBox:_getElementsByClassName('container')[0]
+	,page:{	//翻页动作配置
+		sons:_pageSons	//翻页单元组
+		,dis:_showDis	//翻页距离
+		,range:__showBoxCount	//显示的单元数量
+		,moveStyle:'left'
+		,turnPagesCount:10
+		,layCall:function(i,d,j){	//每次进行排序时调用
+			if(!_loadMap[j]){
+				_loadMap[j]=1;
+				parent.__start(j+1);
+				_otherProcess(j);
+			}
+
+			try{
+				_slide.refresh();
+			}catch(e){}
+		}
+	}
+	,nextCallLast:function(){	//下一页动作完成后执行函数
+		try{_focusToTrack(_bindedRotate.getIndex());}catch(e){};
+	}
+	,prevCallLast:function(){	//上一页动作完成后执行函数
+		try{_focusToTrack(_bindedRotate.getIndex());}catch(e){};
+	}
+	,nextCallFirst:function(){	//下一页动作完成前执行函数，返回false会中断动作
+		
+	}
+	,prevCallFirst:function(){	//上一页动作完成前执行函数，返回false会中断动作
+		
+	}
+});
+
+
+var _bindedRotate=_rotateBoxObj.bindedRotate;
+
+
+function _currentSlide(_obj){
+	var _inter=_obj.inter
+		,_timer
+		,_length=_obj.length
+		,_action=_obj.action
+		,_index=0
+		,_this=this;
+	
+	function _refresh(){
+		_action&&_action(_index);
+	}
+
+	function _start(){
+		_refresh();
+		clearInterval(_timer);
+		_timer=setInterval(function(){
+			_next();
+			_refresh();
+		},_inter);
+	}
+
+	function _next(){
+		_index++;
+		if(_index>=_length){
+			_index=0;
+		}
+	}
+
+	function _select(i){
+		_index=i;
+	}
+	
+	function _stop(){
+		clearInterval(_timer);
+	}
+
+	function _restart(){
+		_index=0;
+		_start();
+	}
+
+	function _getIndex(){
+		return _index;
+	}
+
+	_this.getIndex=_getIndex;
+	_this.start=_start;
+	_this.stop=_stop;
+	_this.restart=_restart;
+	_this.select=_select;
+	_this.refresh=_refresh;
+}
+
+var _slide=new _currentSlide({
+	length:_rotateBoxObj.pageObj.showIndexArr.length<2?2:_rotateBoxObj.pageObj.showIndexArr.length
+	,inter:1500
+	,action:function(_index){
+		//清空
+		for(var i=0;i<_pageSons.length;i++){
+			_removeClass(_pageSons[i],'showbox-current');
+		}
+
+		var _currentIndex=_rotateBoxObj.pageObj.showIndexArr[_index];
+
+		//添加
+		_pageSons[_currentIndex]&&_setClass(_pageSons[_currentIndex],'showbox-current');
+	}
+});
+_slide.start();
+if(_rotateBoxObj.pageObj.showIndexArr.length>1){
+	function _sildeIn(e,_index){
+		for(var i=0;i<_rotateBoxObj.pageObj.showIndexArr.length;i++){
+			if(_pageSons[_rotateBoxObj.pageObj.showIndexArr[i]]==this){
+				_slide.select(i);
+				_slide.start();
+				break;
+			}
+		}
+		_slide.stop();
+	}
+
+	function _slideOut(_index){
+		_slide.start();
+	}
+
+	_attachDOMEvent(_pageSons,'onmouseenter',_sildeIn);
+	_attachDOMEvent(_pageSons,'ontouchstart',_sildeIn);
+	_attachDOMEvent(_pageSons,'onmouseleave',_slideOut);
+	_attachDOMEvent(_pageSons,'ontouchend',_slideOut);
+}
+
+
+//动作暂停机制，包含开场画面和插播画面
+!function(){
+	var _globalTimer,_liveStatus=1;
+	if(parent.__init.stopAction){
+		function _globalStart(){
+			_liveStatus=1;
+			clearTimeout(_globalTimer);
+			_slide.start();
+			_globalTimer=setTimeout(_globalEnd,parent.__init.stopAction||28000);
+		}
+
+		function _globalEnd(){
+			_liveStatus=0;
+			_bindedRotate.end();
+			_openingMask.stop&&_openingMask.stop();
+			_createIntercut();
+			_slide.start();
+			_slide.stop();
+		}
+		_attachDOMEvent(_getElementsByClassName('container')[0],'onmousemove',function(){
+			_globalStart();
+		});
+		_globalStart();
+	}
+	parent.__init.custom&&parent.__start();
+
+	var _intercutTimer,_intercutMask;
+	function _createIntercut(){
+		clearInterval(_intercutTimer);
+		var _f=arguments.callee;
+		if(!_liveStatus){
+			_intercutMask&&_intercutMask.stop&&_intercutMask.stop();
+			setTimeout(_f,100);
+		}
+		_intercutTimer=setTimeout(function(){
+			if(!_intercutMask){
+				_intercutMask=new __setMask({
+					mask:_getElementsByClassName('intercut')[0]
+					,inter:__keyMap.intercutDuration
+					,image:__keyMap.intercutImage
+					,firstCall:function(){
+						_getElementsByClassName('intercut')[0].style.left=0;
+						_getElementsByClassName('intercut')[0].style.visibility='visible';
+					}
+					,complete:function(){
+						_f();
+					}
+				});
+			}else{
+				_intercutMask.start&&_intercutMask.start();
+			}
+
+		},__keyMap.intercutInter);
+	}
+
+	var _isMask,_openingMask;
+	_openingMask=new __setMask({
+		mask:_getElementsByClassName('opening')[0]
+		,inter:__keyMap.openingDuration
+		,image:__keyMap.openingImage
+		,firstCall:function(){
+			_getElementsByClassName('opening')[0].style.left=0;
+			_bindedRotate.end();
+			_isMask=1;
+		}
+		,complete:function(){
+			if(_liveStatus){
+				_bindedRotate.start();
+				_createIntercut();
+			}
+		}
+	});
+
+	if(!_isMask)_createIntercut();
+}();
+
+//-->
+</script><style type="text/css">.info3-content1{;color:#ffffff;font-weight:normal;font-family:microsoft yahei,simsun}.info3-content1,.info3-content1 *{text-decoration:none}</style><style type="text/css">.info3-content2{;color:#ffffff;font-weight:normal;font-family:microsoft yahei,simsun}.info3-content2,.info3-content2 *{text-decoration:none}</style><style type="text/css">.info3-content3{;color:#ffffff;font-weight:normal;font-family:microsoft yahei,simsun}.info3-content3,.info3-content3 *{text-decoration:none}</style><style type="text/css">.info1{;color:#a00011;font-weight:normal;text-align:center;font-family:microsoft yahei,simsun}.info1,.info1 *{text-decoration:none}</style><style type="text/css">.info2-content1{;color:#a00011;font-weight:normal;font-family:microsoft yahei,simsun}.info2-content1,.info2-content1 *{text-decoration:none}</style><style type="text/css">.info2-content2{;color:#31629d;font-weight:normal;font-family:microsoft yahei,simsun}.info2-content2,.info2-content2 *{text-decoration:none}</style><style type="text/css">.info2-content3{;color:#a00011;font-weight:normal;font-family:microsoft yahei,simsun}.info2-content3,.info2-content3 *{text-decoration:none}</style><style type="text/css">.info4-content1{;color:#979d9d;font-weight:normal;font-family:microsoft yahei,simsun}.info4-content1,.info4-content1 *{text-decoration:none}</style><style type="text/css">.info4-content2{;color:#31629d;font-weight:normal;font-family:microsoft yahei,simsun}.info4-content2,.info4-content2 *{text-decoration:none}</style><style type="text/css">.info4-content3{;color:#979d9d;font-weight:normal;font-family:microsoft yahei,simsun}.info4-content3,.info4-content3 *{text-decoration:none}</style><style type="text/css">.info3{;text-align:center}.info2{;text-align:center}.info4{;text-align:center}.pagec1{background-color:transparent}.pagec2{background-color:transparent}.logo1{background-color:#195595}.logo2{background-color:transparent}.container{background-color:#ffffff}.container{border-radius:0px}.container{border-Left-width:1px}.container{border-Left-style:solid}.container{border-Left-color:#225595}.container{border-Right-width:1px}.container{border-Right-style:solid}.container{border-Right-color:#225595}.container{border-Top-width:1px}.container{border-Top-style:solid}.container{border-Top-color:#225595}.container{border-Bottom-width:1px}.container{border-Bottom-style:solid}.container{border-Bottom-color:#225595}.item{background-color:transparent}.showbox-current .item{background-color:transparent}.item{border-radius:0px}.showbox-current .item{border-radius:0px}.item{border-width:1px}.showbox-current .item{border-width:2px}.item{border-style:solid}.showbox-current .item{border-style:solid}.item{border-color:#dcdcdc}.showbox-current .item{border-color:#326897}.disp{border-radius:0px}.disp{border-width:0px}.disp{border-color:#0000ee}.border1{background-color:#ed1c24}.border1{border-radius:0px}.border1{border-width:0px}.border1{border-style:solid}.border1{border-color:#ffffff}.background1{background-color:#fff}.background1{opacity:1;filter:alpha(opacity=100)}.background1{border-radius:0px}</style>
+
+
+</body></html>

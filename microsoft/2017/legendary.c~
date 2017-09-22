@@ -1,0 +1,55 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+
+static float count_quest(float p, float q);
+int main()
+{
+        float n, p, q;
+        float t = 0.0;
+        int i;
+        n = 2;
+        p = 50;
+        q = 75;
+
+        t = count_quest(p, q);
+//        t = p/100 + 2*(1 - p/100)*(p + q) / 100;        
+#if 1        
+        for(i = 1; i < n; i++) {
+                int mi = pow(2,i);
+                int newp = p / mi;
+                printf("newp = %d\n", newp);
+                t += count_quest((float)newp, q);
+        }
+#endif
+        printf("t = %f\n", t);
+}
+
+
+static float count_quest(float p, float q)
+{
+        float add_count;
+        int yu, i_count;
+        float r;
+        int i;
+        
+        add_count = (100 - p) / q;
+        yu = (100 - (int)p) % (int)q;
+
+        if (yu != 0)
+                add_count += 1;
+
+        i_count = (int) add_count;
+        printf("i_count = %d\n", i_count);
+#if 0
+        r = 1 * p/100;
+
+        for (i = 0; i < add_count+1; i++) {
+                r += (i+2)*(1-p)/100
+        }
+        r = 1 * p/100 + 2 * (1 - p)/100 * (p+q)/100;
+
+        r = 1 * p/100 + 2 * (1-p)/100*(p+q)/100 + 3 * (1-p)/100*(1-p-q)/100*(p+2q)/100;
+#endif        
+        
+}

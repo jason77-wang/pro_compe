@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html style="font-size: 40px;"><head>
+   <link rel="canonical" href="http://blog.csdn.net/hulamua/article/details/68945979">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="yes">    
+    <meta name="shenma-site-verification" content="bf32a58a3df1c3452b75fbe96c7feb42_1497604697">
+    <script type="text/javascript" async="" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/pr.js"></script><script type="text/javascript" async="" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/mqkonkoqenepgdzkon.js"></script><script src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/hm.js"></script><script src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/jquery-1.js" type="text/javascript"></script>
+    <!--link( rel="stylesheet" href="http://c.csdnimg.cn/public/common/toolbar/css/index.css" )-->
+    <link rel="stylesheet" href="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/bootstrap.css">
+    <link rel="stylesheet" href="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/avatar.css">
+    <link rel="stylesheet" href="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/common.css">
+    <!-- [if IE 7]-->
+    <!--link( rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" )-->
+    <!-- [endif]-->
+    <link rel="stylesheet" href="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/main.css">
+    <!-- [if lt IE 9]-->
+    <script src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/html5shiv.js"></script>
+    <!-- [endif]-->
+        <title>微软2017年预科生计划在线编程笔试题Legendary Items - hulamua的博客 - CSDN博客</title>
+    
+    <script type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/blog_mobile.js"></script>
+
+    
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+   
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style></head>
+<body><link href="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/jiathis_share.css" rel="stylesheet" type="text/css"><iframe style="position: fixed; display: none; opacity: 0;" frameborder="0"></iframe><div class="jiathis_style" style="position: absolute; z-index: 1000000000; display: none; top: 50%; left: 50%; overflow: auto;"></div><div class="jiathis_style" style="position: absolute; z-index: 1000000000; display: none; overflow: auto;"></div><iframe style="display: none;" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/jiathis_utility.html" frameborder="0"></iframe><div id="MathJax_Message" style="display: none;"></div>
+    
+<!-- 广告位开始 --> 
+<ins data-revive-zoneid="202" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins> 
+<!-- 广告位结束 -->
+
+
+<script language="JavaScript" type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/jquery.js"></script>
+<script type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/main_002.js"></script>
+
+<script type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/MathJax.js"></script>
+<link rel="stylesheet" href="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/markdown_views.css">
+
+<script type="text/javascript">
+    var fileName = '68945979';
+    var commentscount = 2;
+    var islock = false;
+    var currentUserName='';
+    
+</script>
+
+<script type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/digg.js"></script>
+
+
+<div class="blog_main">
+      <div class="blog_top_wrap">
+        <div class="blog_top"><i id="menu_J" class="iconfont icon_l"></i>
+            <form method="get" action="/search/index" id="searchform">
+    <i id="search_J" class="iconfont icon_r"></i>
+    <div id="search_c_J" class="search">
+         <input placeholder="请输入" id="search" name="keyword" page="1" type="text"><i class="iconfont icon_search"></i><i class="iconfont icon_close"></i>
+    </div>
+</form>
+<script type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/search.js"></script>
+
+
+
+
+          <h2 class="blog_top_t">CSDN博客</h2>
+        </div>
+      </div>
+
+ 
+
+      <div class="main_list">
+     
+
+          <script type="text/javascript">             
+              var cpro_id = "u2901270";
+        </script>
+        
+          <div id="_l0wgu5ihnog"><iframe scrolling="no" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/s.html" width="1301" height="196" frameborder="0"></iframe></div><script type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/igdgevskg5.js"></script>
+
+
+        <div class="blog_article">
+          <div class="blog_article_t">
+            <div class="article_l"><a href="http://m.blog.csdn.net/hulamua"><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/1_hulamua.jpg" alt="img"></a>
+                <a href="http://m.blog.csdn.net/hulamua" class="article_user">hulamua</a></div>
+            <div class="article_r">
+            </div>
+          </div>
+          <div class="blog_article_c clearfix">
+            <h3 class="article_t">微软2017年预科生计划在线编程笔试题Legendary Items</h3>
+            <p class="date"><i>发表于</i><em>2017/4/2 19:08:42  &nbsp;</em><i>537</i><span>人阅读</span></p>
+            <p class="category_p">
+                    分类：
+                        <span>算法题</span>
+            </p>
+             
+<div class="article_c">
+
+<p><br>
+</p>
+<p><br>
+</p>
+<p></p>
+<div class="panel-heading" style="border-color:rgb(221,221,221); padding:10px 15px; color:rgb(51,51,51); font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:14px; border-bottom-width:1px; border-bottom-style:solid; background-color:rgb(245,245,245)">
+<h3 class="panel-title" style="color:inherit; line-height:1.1; font-size:16px; font-weight:500; margin-top:0px; margin-bottom:0px">
+题目1 : Legendary Items</h3>
+</div>
+<div class="panel-body" style="padding:15px; color:rgb(51,51,51); font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:14px">
+<div id="tl-problem-content">
+<div class="limit">
+<div>时间限制:<span style="margin-left:10px">10000ms</span></div>
+<div>单点时限:<span style="margin-left:10px">1000ms</span></div>
+<div>内存限制:<span style="margin-left:10px">256MB</span></div>
+</div>
+<table style="border-collapse:collapse; max-width:100%; border-spacing:0px; background-color:transparent">
+</table>
+<dl class="des" style="margin-top:0px; margin-bottom:20px">
+<div>
+<h3 style="color:inherit; line-height:1.1; font-size:24px; font-weight:500; margin-top:20px; margin-bottom:10px">
+描述</h3>
+<p style="margin-top:0px; margin-bottom:10px">Little Hi is playing a 
+video game. Each time he accomplishes a quest in the game, Little Hi has
+ a chance to get a legendary item.</p>
+<p style="margin-top:0px; margin-bottom:10px">At the beginning the probability is&nbsp;<var>P%</var>. Each time Little Hi accomplishes a quest without getting a legendary item, the probability will go up&nbsp;<var>Q%</var>. Since the probability is getting higher he
+ will get a legendary item eventually.</p>
+<p style="margin-top:0px; margin-bottom:10px">After getting a legendary item the probability will be reset to ⌊P/(2<span style="top:-0.5em; line-height:0; font-size:10.5px; vertical-align:baseline; position:relative">I</span>)⌋% (⌊x⌋ represents the largest
+ integer no more than x) where I is the number of legendary items he already has. The probability will also go up&nbsp;<var>Q%</var>&nbsp;each time Little Hi accomplishes a quest until he gets another legendary item.</p>
+<p style="margin-top:0px; margin-bottom:10px">Now Little Hi wants to know the expected number of quests he has to accomplish to get N legendary items. &nbsp;</p>
+<p style="margin-top:0px; margin-bottom:10px">Assume&nbsp;<var>P</var>&nbsp;= 50,&nbsp;<var>Q</var>&nbsp;= 75 and&nbsp;<var>N</var>&nbsp;= 2, as the below figure shows the expected number of quests is</p>
+<p style="margin-top:0px; margin-bottom:10px">2*50%*25% + 3*50%*75%*100% + 3*50%*100%*25% + 4*50%*100%*75%*100% = 3.25</p>
+<p style="margin-top:0px; margin-bottom:10px"><img title="legendary.png" alt="" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/14909360988185.png" style="border:0px currentColor; width:374px; height:197px; vertical-align:middle; float:none" width="374" height="197" vspace="0" border="0" hspace="0"></p>
+<h3 style="color:inherit; line-height:1.1; font-size:24px; font-weight:500; margin-top:20px; margin-bottom:10px">
+输入</h3>
+<p style="margin-top:0px; margin-bottom:10px">The first line contains three integers&nbsp;<var>P</var>,&nbsp;<var>Q</var>&nbsp;and&nbsp;<var>N</var>. &nbsp;</p>
+<p style="margin-top:0px; margin-bottom:10px">1 ≤ N ≤ 10<span style="top:-0.5em; line-height:0; font-size:10.5px; vertical-align:baseline; position:relative">6</span>, 0 ≤ P ≤ 100, 1 ≤ Q ≤ 100</p>
+<h3 style="color:inherit; line-height:1.1; font-size:24px; font-weight:500; margin-top:20px; margin-bottom:10px">
+输出</h3>
+<p style="margin-top:0px; margin-bottom:10px">Output the expected number of quests rounded to 2 decimal places.</p>
+</div>
+<dt style="margin:10px 0px; line-height:1.4285; font-size:18px; font-weight:700">
+样例输入</dt><dd style="margin:10px; line-height:1.4285">
+<pre style="width: 100%; overflow: hidden;">50 75 2</pre>
+</dd><dt style="margin:10px 0px; line-height:1.4285; font-size:18px; font-weight:700">
+样例输出</dt><dd style="margin:10px; line-height:1.4285">
+<pre style="width: 100%; overflow: hidden;">3.25</pre>
+</dd></dl>
+</div>
+</div>
+<p></p>
+<p><br>
+</p>
+<span style="font-size:14px"></span>
+<p><span style="font-family:宋体"><br>
+</span></p>
+<p style="margin:0cm 0cm 0pt"><span><span style="font-family:宋体">看了半天才看懂。</span></span></p>
+<p><span style="font-family:宋体"><br>
+</span></p>
+<p style="margin:6pt 0cm; line-height:125%; text-indent:24pt"><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">题意：每次完成一个没有</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">legendary
+ item</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">的</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">quest</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">，概率会上升</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">Q%(</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">直到获得</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">legendary
+ item)</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">；完成</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">legendary item</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">的</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">quest</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">，概率重设为</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">P/(2^I)%</span></span></p>
+<p style="margin:6pt 0cm; line-height:125%; text-indent:24pt"><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">反映到图中就是：每个节点的左节点为实心节点（完成</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">legendary
+ item</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">的），右节点为空节点（未完成</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">legendary item</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">）。每个空节点（假设概率</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">x</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">）的左节点为</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">x+q</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">，实心节点的左节点概率为</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">P/(2^I)%&nbsp;</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">，（图中每个节点的左右节点之和为</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">100%</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">）。</span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">求为了得到</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">n</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">个</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">legendaryitem</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">，需要多少</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">quest</span></span><span style="font-family:宋体"><br>
+</span></p>
+<p style="margin:6pt 0cm; line-height:125%; text-indent:24pt"><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">以上图为例，从上往下看，</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">p</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">为</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">50%</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">，</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">n</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">为</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">2</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">时，最左边一直走，概率分别为：</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">50%</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">，</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">25%</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">（</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">2</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">个</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">legendary
+ item</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">），则停止</span></p>
+<p style="margin:6pt 0cm; line-height:125%; text-indent:24pt"><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">将整个树看作</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">n</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">层，从底层开始计算。</span></p>
+<p style="margin:6pt 0cm; line-height:125%; text-indent:24pt"><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">下面开始计算：自底向上，从最左的</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">25%</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">节点开始，这一点为</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">0.25*</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">（</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">0+1</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">），此时不需往下走</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">(</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">因为已经拿到</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">2</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">个</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">legendary
+ item)</span></span></p>
+<p style="margin:6pt 0cm; line-height:125%; text-indent:24pt"><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">右节点为</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">1-0.25=0.75</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">（</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">former</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">），向下继续走概率为</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">0.25+q=1</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">（如果小于</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">1</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">，可以往下继续走），则概率为</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">0.75*</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">（</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">0+2</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">）。至此两点之和</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">0.25+0.75*2=1.75</span></span></p>
+<p style="margin:6pt 0cm; line-height:125%; text-indent:24pt"><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">25%</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">的父节点为</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">50%</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">，则</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">50%</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">这一点为</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">0.5*</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">（</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">1.75+1</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">），意思是这一点的子节点加上</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">1</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">个</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">level</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">再乘以</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">0.5</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">就是这一点值</span></p>
+<p style="margin:6pt 0cm; line-height:125%; text-indent:24pt"><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">再看另外</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">50%</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">（右节点），</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">former</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">为</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">0.5</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">，继续向下走为</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">0.5*</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">（</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">1.75+2</span></span><span style="font-family:宋体; color:black; line-height:125%; font-size:12pt">），至此两点之和</span><span style="color:black; line-height:125%; font-size:12pt" lang="EN-US"><span style="font-family:Times New Roman">3.25</span></span></p>
+<p><span style="font-family:宋体"><br>
+</span></p>
+<p><br>
+</p>
+<br>
+<p>AC代码：</p>
+<p></p>
+<pre class="java" name="code" snippet_file_name="blog_20170402_1_6656401" code_snippet_id="2308150" style="width: 100%; overflow: hidden;">public class Main {
+	public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int p = in.nextInt();
+    	int q = in.nextInt();
+    	int n = in.nextInt();
+    	helper(p, q, n);
+	}
+	public static void helper(int p, int q, int n) {
+		List&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();
+    	list.add(p);
+    	double r = 0;
+    	for (int i = 1; i &lt; n; i++) {
+    		list.add(list.get(i - 1) / 2);
+    	}
+    	for (int m = n - 1; m &gt;= 0; m--) {
+    		int tmp = list.get(m);
+    		double one = 0, former = 1;
+    		int level = 1;
+    		for (int j = tmp; ; j+= q) {
+    			if (j &gt; 100) {
+    				j = 100;
+    			}
+    			one += former * ((double)j / 100)* (r + level) ;
+    			former *= (1.0 - (double)j / 100.0);
+  
+    			level++;
+    			if(j == 100) {
+    			    break;
+    			}
+    		}
+    		r = one;
+    	}
+    	System.out.print(r);
+	}
+}
+</pre>
+<p><br>
+再推荐一个这场笔试的讲解链接，分析的很好：</p>
+<p><a target="_blank" href="https://github.com/hiho-coder/msft-2017-online-test-solution/blob/master/README.md">https://github.com/hiho-coder/msft-2017-online-test-solution/blob/master/README.md</a><br>
+</p>
+<p></p>
+<div style="top:946px">﻿﻿</div>
+ </div>
+
+          </div>
+
+                               
+
+             <div class="blog_handle">
+        <span id="digg" style="cursor:pointer"><i class="iconfont"></i><em>0</em></span>
+        <span id="bury" style="cursor:pointer"><i class="iconfont"></i><em>0</em></span>
+       
+    </div>
+
+
+
+              <div class="prev_next">
+                        <a href="http://m.blog.csdn.net/hulamua/article/details/65628790" class="prev" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);">上一篇</a>                                                                       
+                        <a href="http://m.blog.csdn.net/hulamua/article/details/66971550" class="next" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">下一篇</a>
+              </div>         
+        </div>
+        
+    
+
+          <script type="text/javascript">
+               /*csdn wap端 博客内页-20:3 创建于 2016-05-10*/
+               var cpro_id = "u2634430";
+            </script>
+           
+
+          <div id="_9fmtk560i0h"><iframe scrolling="no" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/s_002.html" width="1291" height="194" frameborder="0"></iframe></div><script type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/ggdgbyvmc5.js"></script>
+
+
+       
+<script type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/highcode.js"></script>
+<script type="text/javascript">
+    var fileName = '68945979';
+    var commentscount = 2;
+    var islock = false;
+    var currentUserName='';
+    var topSize=3;
+    var listId = ".blog_comment_list";
+</script>
+
+<div class="no_comment" style="display:none"><i class="iconfont"></i><span>暂无评论，</span><a href="http://m.blog.csdn.net/comment/post?id=68945979">我去发表</a><em>~</em></div>
+
+ <div class="blog_comment" style="">
+       <h3 class="isComment">评论<span>（2）</span></h3>
+       <dl class="blog_comment_list"> <dl class="blog_comment_list">      <dt class="clearfix">        <label><a href="http://m.blog.csdn.net/blog/index?username=starry8023"><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/3_starry8023.jpg" alt="starry8023"></a><a href="#" class="com_user">starry8023</a></label><span><em>1</em>楼</span>      </dt>      <dd>         <p class="comment_c">博主大大，coding小白想请问这属于算法中的哪类问题啊？想找类似的题再练练</p>         <div class="com_time clearfix"><span>2017-04-09 18:11</span><a href="http://m.blog.csdn.net/comment/post?id=68945979&amp;replyId=6740035&amp;replyUserName=starry8023#reply" class="com_reply">回复</a></div> <dl class="blog_comment_list comment_sigle clearfix">   <dt class="clearfix">            <label><a href="http://m.blog.csdn.net/blog/index?username=hulamua"><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/3_hulamua.jpg" alt="hulamua"></a><a href="#" class="com_user">hulamua</a></label>            </dt>            <dd>               <p class="comment_c">回复starry8023：这题属于归纳总结模拟，也用到了概率知识（取得每件物品是独立事件）。。当然关键是理解题意，不要被题中的树这个结构给蒙蔽了。这题确实挺难的= =</p>              <div class="com_time"><span>2017-04-09 19:35</span>               </div>            </dd> </dl>       </dd>     </dl></dl>
+       <div class="checkAll"><a href="http://m.blog.csdn.net/comment/post?id=68945979">发表评论</a></div>
+ </div>
+
+<script type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/comment.js"></script>
+
+
+
+       
+        <div style="display:none" id="tags">微软,编程</div>
+
+   
+<script type="text/javascript">
+    /*wap端-博客内页热门文章上通栏-20:5*/
+    var cpro_id = "u2901277";
+</script>
+
+<div id="_fcnv4x7ycg8"><iframe scrolling="no" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/s_003.html" width="1291" height="323" frameborder="0"></iframe></div><script type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/pndinhgfig.js"></script>
+<div class="my_hot_article">
+         <h3 class="isArticle">相关博文</h3>
+
+                  <ul class="hot_article tracking-ad" id="res" data-mod="popu_36">
+                                   <li>                                      
+                                       <a href="http://blog.csdn.net/sddyzjh/article/details/68950610" title="[hihocoder1489][微软2017年预科生计划在线编程笔试][Legendary Items]" strategy="BlogCommendFromCsdn" target="_blank">[hihocoder1489][微软2017年预科生计划在线编程笔试][Legendary Items]</a>
+                                   </li>
+                                   <li>                                      
+                                       <a href="http://blog.csdn.net/BuptZhengChaoJie/article/details/69831275" title="微软2017年预科生计划在线编程笔试，附解题思路" strategy="BlogCommendFromCsdn" target="_blank">微软2017年预科生计划在线编程笔试，附解题思路</a>
+                                   </li>
+                                   <li>                                      
+                                       <a href="http://blog.csdn.net/zqh_1991/article/details/51918187" title="[2016 微软预科生计划-探星夏令营在线测试2] Give My Text Back(字符串处理)" strategy="BlogCommendFromCsdn" target="_blank">[2016 微软预科生计划-探星夏令营在线测试2] Give My Text Back(字符串处理)</a>
+                                   </li>
+                                   <li>                                      
+                                       <a href="http://blog.csdn.net/acmlions/article/details/70339676" title="2017微软预科生面试总结" strategy="BlogCommendFromCsdn" target="_blank">2017微软预科生面试总结</a>
+                                   </li>
+                                   <li>                                      
+                                       <a href="http://blog.csdn.net/xiatianhappy/article/details/51125359" title="hihocoder 1289 2017年微软实习笔试题" strategy="BlogCommendFromCsdn" target="_blank">hihocoder 1289 2017年微软实习笔试题</a>
+                                   </li>
+                                   <li>                                      
+                                       <a href="http://blog.csdn.net/Harriet666/article/details/56841528" title="微软仍计划在2017年发布两次Windows 10系统升级" strategy="BlogCommendFromCsdn" target="_blank">微软仍计划在2017年发布两次Windows 10系统升级</a>
+                                   </li>
+                                   <li>                                      
+                                       <a href="http://blog.csdn.net/ClamReason/article/details/7853170" title="微软笔试题 跳台阶问题" strategy="BlogCommendFromCsdn" target="_blank">微软笔试题 跳台阶问题</a>
+                                   </li>
+                                   <li>                                      
+                                       <a href="http://blog.csdn.net/martinmateng/article/details/51084559" title="微软笔试题4:Buiding in Sandbox" strategy="BlogCommendFromCsdn" target="_blank">微软笔试题4:Buiding in Sandbox</a>
+                                   </li>
+                                   <li>                                      
+                                       <a href="http://blog.csdn.net/yaoqiang2011/article/details/12616423" title="近几年微软笔试题汇总分类解析" strategy="BlogCommendFromCsdn" target="_blank">近几年微软笔试题汇总分类解析</a>
+                                   </li>
+                                   <li>                                      
+                                       <a href="http://blog.csdn.net/scoliver/article/details/7541860" title="微软2012实习生笔试题及答案（望讨论）" strategy="BlogCommendFromCsdn" target="_blank">微软2012实习生笔试题及答案（望讨论）</a>
+                                   </li>
+                  </ul>
+        </div>
+
+      
+<script type="text/javascript">
+    /*wap端-博客内页相关博文上通栏-20:5*/
+    var cpro_id = "u2901286";
+</script>
+
+<div id="_l8vy86ious" style="width: 100%;"><div id="fgyxy" style="padding-right:0px;"><iframe scrolling="no" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/s_004.html" width="1291" height="323" frameborder="0"></iframe></div></div><script type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/ywd719wkds.js"></script>
+
+        
+    <div class="my_hot_article">
+          <h3 class="isArticle">我的热门文章</h3>
+          <ul class="hot_article">
+                <li><a href="http://m.blog.csdn.net/hulamua/article/details/53665816">java输入输出流</a></li>
+                <li><a href="http://m.blog.csdn.net/hulamua/article/details/52539087">动态规划——最长递增子序列和最长公共子序列</a></li>
+                <li><a href="http://m.blog.csdn.net/hulamua/article/details/68945979">微软2017年预科生计划在线编程笔试题Legendary Items</a></li>
+                <li><a href="http://m.blog.csdn.net/hulamua/article/details/52411446">异或应用小总结</a></li>
+                <li><a href="http://m.blog.csdn.net/hulamua/article/details/54798792">leetcode最优解整理2(Linked list/ Stack/Queue/Array/HashTable/ Tree/bfs/union find)</a></li>
+          </ul>
+        </div>
+
+<script type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/main.js"></script>
+
+
+
+
+
+
+
+
+       
+      </div>
+
+        
+   <div class="leftNav">
+      
+<div class="left_top">
+        <a href="https://passport.csdn.net/account/login?from=http%3a%2f%2fm.blog.csdn.net%2fhulamua%2farticle%2fdetails%2f68945979"><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/1_csdn.gif"></a>
+        <a href="https://passport.csdn.net/account/login?from=http%3a%2f%2fm.blog.csdn.net%2fhulamua%2farticle%2fdetails%2f68945979" class="sign">未登录</a> 
+</div>
+        
+        <ul class="nav_list">
+            <li><a href="http://m.blog.csdn.net/home/index"><i>•</i><span>首页</span><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/iconfont-youjiantou.png" alt="img" class="arrow_r"></a></li>
+                <li><a href="http://m.blog.csdn.net/Column/Column?Channel=mobile&amp;Type="><i>•</i><span>移动开发</span><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/iconfont-youjiantou.png" alt="img" class="arrow_r"></a></li>
+                <li><a href="http://m.blog.csdn.net/Column/Column?Channel=enterprise&amp;Type="><i>•</i><span>架构</span><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/iconfont-youjiantou.png" alt="img" class="arrow_r"></a></li>
+                <li><a href="http://m.blog.csdn.net/Column/Column?Channel=cloud&amp;Type="><i>•</i><span>云计算/大数据</span><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/iconfont-youjiantou.png" alt="img" class="arrow_r"></a></li>
+                <li><a href="http://m.blog.csdn.net/Column/Column?Channel=www&amp;Type="><i>•</i><span>互联网</span><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/iconfont-youjiantou.png" alt="img" class="arrow_r"></a></li>
+                <li><a href="http://m.blog.csdn.net/Column/Column?Channel=system&amp;Type="><i>•</i><span>运维</span><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/iconfont-youjiantou.png" alt="img" class="arrow_r"></a></li>
+                <li><a href="http://m.blog.csdn.net/Column/Column?Channel=database&amp;Type="><i>•</i><span>数据库</span><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/iconfont-youjiantou.png" alt="img" class="arrow_r"></a></li>
+                <li><a href="http://m.blog.csdn.net/Column/Column?Channel=web&amp;Type="><i>•</i><span>前端</span><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/iconfont-youjiantou.png" alt="img" class="arrow_r"></a></li>
+                <li><a href="http://m.blog.csdn.net/Column/Column?Channel=code&amp;Type="><i>•</i><span>编程语言</span><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/iconfont-youjiantou.png" alt="img" class="arrow_r"></a></li>
+                <li><a href="http://m.blog.csdn.net/Column/Column?Channel=software&amp;Type="><i>•</i><span>研发管理</span><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/iconfont-youjiantou.png" alt="img" class="arrow_r"></a></li>
+                <li><a href="http://m.blog.csdn.net/Column/Column?Channel=other&amp;Type="><i>•</i><span>综合</span><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/iconfont-youjiantou.png" alt="img" class="arrow_r"></a></li>
+        </ul>
+   </div>
+   
+
+      <div id="mask"></div>
+    </div>
+
+
+   
+
+    <div class="backToTop" style="display: block;"><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/iconfont-fudongxiangshang.png" alt="img"></div>
+    <!--分享弹窗：-->
+    <div class="popup_cover"></div>
+    <div class="sharePopup_box">
+      <div class="sharePopup">
+        <!--JiaThis Button BEGIN-->
+        <div class="jiathis_style_32x32"><a class="jiathis_button_weixin" title="分享到微信"><span class="jiathis_txt jiathis_separator jtico jtico_weixin"><b><i class="iconfont"></i></b><em>微信分享</em></span></a><a class="jiathis_button_tsina" title="分享到微博"><span class="jiathis_txt jiathis_separator jtico jtico_tsina"><b><i class="iconfont"></i></b><em>新浪微博</em></span></a><a class="jiathis_button_cqq" title="分享到QQ好友"><span class="jiathis_txt jiathis_separator jtico jtico_cqq"><b><i class="iconfont"></i></b><em>QQ好友</em></span></a><a class="jiathis_button_qzone" title="分享到QQ空间"><span class="jiathis_txt jiathis_separator jtico jtico_qzone"><b><i class="iconfont"></i></b><em>QQ空间</em></span></a></div>
+        <script type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/jia.js" charset="utf-8"></script><script type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/plugin.js" charset="utf-8"></script>
+        <!--JiaThis Button END-->
+      </div>
+      <div class="sharePopup_cancel">取 消</div>
+    </div>
+    <script>
+      $(function(){
+        $('#share_btn').click(function(){
+          $('.popup_cover').stop().show();
+          $('.sharePopup_box').stop().slideDown();
+        });
+        $('.sharePopup_cancel').click(function(){
+          $('.popup_cover').stop().hide();
+          $('.sharePopup_box').stop().slideUp();
+        });
+      })
+    </script>
+
+
+
+
+
+
+
+   <div class="backToTop" style="z-index: 9999999; display: block;"><img src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/iconfont-fudongxiangshang.png" alt="img"></div>
+    <div class="blog_footer">©1999-2012, csdn.net, All Rights Reserved</div>
+    <script type="text/javascript" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/fontSize.js"></script>
+<script type="text/javascript" charset="utf-8" src="%E5%BE%AE%E8%BD%AF2017%E5%B9%B4%E9%A2%84%E7%A7%91%E7%94%9F%E8%AE%A1%E5%88%92%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AF%95%E9%A2%98Legendary%20Items%20-%20hulamua%E7%9A%84%E5%8D%9A%E5%AE%A2%20-%20CSDN%E5%8D%9A%E5%AE%A2_files/tracking.js"></script>
+
+
+
+
+
+<div style="position:fixed; top:0; left:0; overflow:hidden;"><input style="position:absolute; left:-300px;" id="focus_retriever" readonly="true" type="text"></div></body></html>
