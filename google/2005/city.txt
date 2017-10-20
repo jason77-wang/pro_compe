@@ -1,0 +1,39 @@
+Problem Statement
+????
+You are given a String[] cityMap representing the layout of a city. The city
+consists of blocks. The first element of cityMap represents the first row of
+blocks, etc. A 'B' character indicates a location where there is a bus stop.
+There will be exactly one 'X' character, indicating your location. All other
+characters will be '.'. You are also given an int walkingDistance, which is the
+maximum distance you are willing to walk to a bus stop. The distance should be
+calculated as the number of blocks vertically plus the number of blocks
+horizontally. Return the number of bus stops that are within walking distance of
+your current location. Definition
+????
+Class:
+BusStops
+Method:
+countStops
+Parameters:
+String[], int
+Returns:
+int
+Method signature:
+int countStops(String[] cityMap, int walkingDistance)
+(be sure your method is public)
+????
+
+Constraints
+-
+cityMap will contain between 1 and 50 elements, inclusive.
+-
+Each element of cityMap will contain between 1 and 50 characters, inclusive.
+-
+Each element of cityMap will contain the same number of characters.
+-
+Each character of each element of cityMap will be 'B', 'X', or '.'.
+-
+There will be exactly one 'X' character in cityMap.
+-
+walkingDistance will be between 1 and 100, inclusive.
+Examples
